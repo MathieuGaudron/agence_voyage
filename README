@@ -1,0 +1,24 @@
+# Agence Voyage — API Node.js (Express + Sequelize + MariaDB)
+
+API REST pour la gestion d’une agence de voyages (Clients, Destinations, Voyages, Réservations).
+
+## Stack
+- Node.js + Express
+- Sequelize (ORM)
+- MariaDB
+- DBeaver (optionnel, pour visualiser la DB)
+
+---
+
+## Prérequis
+- Node.js + npm
+- MariaDB (ou MySQL compatible)
+- (Optionnel) DBeaver
+
+---
+
+## Installation
+1) Cloner / extraire le projet puis installer les dépendances et migration DB:
+```bash
+npm install
+npx sequelize-cli db:migrate
