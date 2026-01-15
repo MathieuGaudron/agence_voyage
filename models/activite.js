@@ -4,8 +4,14 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Activite extends Model {
     static associate(models) {
-      // Activite.belongsTo(models.Destination, { foreignKey: "destinationId" });
-      // (On fera les associations juste après les migrations)
+      Activite.belongsTo(models.Destination, { foreignKey: "destinationId" });
+
+      Activite.belongsToMany(models.Voyage, {
+        through: models.VoyageActivite,
+        foreignKey: "activiteId",
+        otherKey: "voyageId",
+      });
+
     }
   }
 
