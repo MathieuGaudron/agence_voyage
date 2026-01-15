@@ -5,7 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   class Destination extends Model {
     static associate(models) {
 
+      Destination.hasMany(models.Voyage, { foreignKey: "destinationId" });
+      Destination.hasMany(models.Hebergement, { foreignKey: "destinationId" });
+      Destination.hasMany(models.Activite, { foreignKey: "destinationId" });
+      
     }
+
   }
 
   Destination.init(

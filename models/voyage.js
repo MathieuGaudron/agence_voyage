@@ -5,6 +5,21 @@ module.exports = (sequelize, DataTypes) => {
   class Voyage extends Model {
     static associate(models) {
 
+      Voyage.belongsTo(models.Destination, { foreignKey: "destinationId" });
+
+      Voyage.belongsToMany(models.Activite, {
+        through: models.VoyageActivite,
+        foreignKey: "voyageId",
+        otherKey: "activiteId",
+      });
+
+      Voyage.belongsToMany(models.Client, {
+        through: models.Reservation,
+        foreignKey: "voyageId",
+        otherKey: "clientId",
+      });
+
+
     }
   }
 
